@@ -4,7 +4,25 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 	public List<string> burger = new List<string>();
-	
+	private int burgerScore = 0;
+
+	// The following functions keep track of the number of burgers
+	public void incrementBurgerScore () {
+		burgerScore++;
+	}
+
+	public void incrementBurgerScore(int n) {
+		burgerScore += n;
+	}
+
+	public int getBurgerScore () {
+		return burgerScore;
+	}
+
+	public void ResetBurgerScore () {
+		burgerScore = 0;
+	}
+
 	public void GenerateBurger() {
 		string[] ingredients = new string[9] {"lettuce", "tomato", "patty", "pickles", "cheese", "patty", "patty", "patty", "patty",};
 		int num_ingredients = Random.Range(1, 5);

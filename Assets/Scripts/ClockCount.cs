@@ -19,7 +19,6 @@ public class ClockCount : MonoBehaviour {
 	void Update () {
 		//when the timer ends
 		if (currentTime < 0) {
-			//GetComponent<Animator>().SetBool("setAlarm",false);
 			isCounting = false;
 		}
 

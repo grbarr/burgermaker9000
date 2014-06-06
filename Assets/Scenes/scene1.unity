@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCounting: 0
-  counterTime: 4
+  counterTime: 20
   alarmTime: .25
 --- !u!95 &1659711981
 Animator:
