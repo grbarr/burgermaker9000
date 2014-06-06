@@ -6,11 +6,11 @@ using System.Collections;
 /// </summary>
 public class MenuScript : MonoBehaviour
 {
-	GameController gc;
+//	GameController gc;
 
 	void Start() {
-		GameObject gameController = GameObject.Find ("GameController");
-		gc = gameController.GetComponent<GameController>();
+//		GameObject gameController = GameObject.Find ("GameController");
+//		gc = gameController.GetComponent<GameController>();
 	}
 
 	void OnGUI() {
@@ -32,7 +32,7 @@ public class MenuScript : MonoBehaviour
 		) {
 			// On Click, load the first level.
 			Application.LoadLevel("scene1");
-			gc.GenerateBurger();
+//			gc.GenerateBurger();
 		}
 	}
 }

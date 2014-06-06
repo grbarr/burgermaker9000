@@ -23,6 +23,10 @@ public class GameController : MonoBehaviour {
 		burgerScore = 0;
 	}
 
+	void Start() {
+		GenerateBurger ();
+	}
+
 	public void GenerateBurger() {
 		string[] ingredients = new string[9] {"lettuce", "tomato", "patty", "pickles", "cheese", "patty", "patty", "patty", "patty",};
 		int num_ingredients = Random.Range(1, 5);
@@ -35,10 +39,6 @@ public class GameController : MonoBehaviour {
 		}
 
 		burger.Add ("bun_top");
-//		Debug.Log("Buger looks like:");
-//		foreach(string burg_ing in burger) {
-//			Debug.Log(burg_ing);
-//		}
 
 		DisplayGeneratedBurger();
 	}
@@ -51,7 +51,6 @@ public class GameController : MonoBehaviour {
 			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 			Debug.Log(sprite);
 			GameObject go = new GameObject(burg_ing);
-			GameObject.DontDestroyOnLoad(go);
 			SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
 			sr.sprite = sprite;
 		}
