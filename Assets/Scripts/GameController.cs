@@ -27,14 +27,21 @@ public class GameController : MonoBehaviour {
 		GenerateBurger ();
 	}
 
+	void Update() {
+		if (Input.GetMouseButtonDown (0)) {
+			ClearBurger();
+			GenerateBurger();
+		}
+	}
+
 	public void GenerateBurger() {
 		string[] ingredients = new string[9] {"lettuce", "tomato", "patty", "pickles", "cheese", "patty", "patty", "patty", "patty",};
-		int num_ingredients = Random.Range(1, 5);
+		int num_ingredients = Random.Range(1, 6);
 
 		burger.Add ("bun_bottom");
 
 		for (int i = 0; i < num_ingredients; i++) {
-			string ingredient = ingredients[Random.Range(0, 4)];
+			string ingredient = ingredients[Random.Range(0, 8)];
 			burger.Add(ingredient);
 		}
 
@@ -56,10 +63,20 @@ public class GameController : MonoBehaviour {
 			sr.sprite = sprite;
 
 			go.transform.parent = burger_object.transform;
-			go.transform.localPosition = new Vector3(0f, index * 1.25f, 0f);
+			go.transform.localPosition = new Vector3(0f, index * 1.15f, 0f);
 			sr.sortingOrder = index;
 
 			index++;
+		}
+	}
+
+	public void ClearBurger() {
+		burger.Clear();
+
+		var burger_object = GameObject.Find ("Burger");
+
+		foreach (Transform child in burger_object.transform) {
+			GameObject.Destroy(child.gameObject);
 		}
 	}
 }
