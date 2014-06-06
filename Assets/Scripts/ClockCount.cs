@@ -19,28 +19,32 @@ public class ClockCount : MonoBehaviour {
 	void Update () {
 		//when the timer ends
 		if (currentTime < 0) {
+			//GetComponent<Animator>().SetBool("setAlarm",false);
 			isCounting = false;
 		}
 
-		//Alarm goes off
+		//Alarm goes
 		if (currentTime / counterTime < alarmTime) {
-			//do stuff
+			GetComponent<Animator>().SetBool("setAlarm",true);
 		}
 
 		//Update the timer
 		if (isCounting) {
 			currentTime -= Time.deltaTime;
 		}
-		else
+		else {
 			currentTime = counterTime;
+			GetComponent<Animator>().Play("ClockRest");
+			GetComponent<Animator>().SetBool("setAlarm",false);
+		}
 
 		//rotate the hand of the clock correctly
 		float angle;
 		if ( counterTime == 0f )
 			angle = 0;
 		else
-			angle = - currentTime / counterTime * 360;
-		clockHand.transform.rotation = Quaternion.Euler (0, 0, angle);
+			angle = - currentTime / counterTime * 360 + 720;
+		clockHand.transform.localRotation = Quaternion.Euler (0, 0, angle);
 
 	}
 }
