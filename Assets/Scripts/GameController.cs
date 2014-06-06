@@ -44,7 +44,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void DisplayGeneratedBurger() {
-		var burger_object = GameObject.Find ("burger");
+		var burger_object = GameObject.Find ("Burger");
+		int index = 1;
 
 		foreach (string burg_ing in burger) {
 			var texture = Resources.Load<Texture2D>("burger_parts/" + burg_ing);
@@ -53,6 +54,12 @@ public class GameController : MonoBehaviour {
 			GameObject go = new GameObject(burg_ing);
 			SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
 			sr.sprite = sprite;
+
+			go.transform.parent = burger_object.transform;
+			go.transform.localPosition = new Vector3(0f, index * 1.25f, 0f);
+			sr.sortingOrder = index;
+
+			index++;
 		}
 	}
 }
