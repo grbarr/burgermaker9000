@@ -296,6 +296,7 @@ GameObject:
   - 4: {fileID: 1659711979}
   - 114: {fileID: 1659711978}
   - 114: {fileID: 1659711980}
+  - 95: {fileID: 1659711981}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -345,6 +346,20 @@ MonoBehaviour:
   isCounting: 0
   counterTime: 60
   alarmTime: 0
+--- !u!95 &1659711981
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1659711977}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07cc786be3b6c466892dabe6e1769333, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
 --- !u!1 &1677027895
 GameObject:
   m_ObjectHideFlags: 0
