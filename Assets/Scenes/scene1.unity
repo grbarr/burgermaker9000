@@ -316,3 +316,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isCounting: 0
   counterTime: 60
+  alarmTime: 0

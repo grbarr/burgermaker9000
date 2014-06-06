@@ -5,6 +5,7 @@ public class ClockCount : MonoBehaviour {
 
 	public bool isCounting;
 	public float counterTime;
+	public float alarmTime;	// a ratio of the time to set off the alarm
 	private float currentTime;
 	GameObject clockHand;
 
@@ -21,6 +22,11 @@ public class ClockCount : MonoBehaviour {
 			isCounting = false;
 		}
 
+		//Alarm goes off
+		if (currentTime / counterTime < alarmTime) {
+			//do stuff
+		}
+
 		//Update the timer
 		if (isCounting) {
 			currentTime -= Time.deltaTime;
@@ -34,7 +40,6 @@ public class ClockCount : MonoBehaviour {
 			angle = 0;
 		else
 			angle = - currentTime / counterTime * 360;
-		Debug.Log (angle);
 		clockHand.transform.rotation = Quaternion.Euler (0, 0, angle);
 
 	}
