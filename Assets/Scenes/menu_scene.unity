@@ -103,11 +103,11 @@ GUIText:
   m_Anchor: 1
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
-  m_LineSpacing: 1
-  m_TabSize: 4
+  m_LineSpacing: .800000012
+  m_TabSize: 2
   m_Font: {fileID: 12800000, guid: 84dc9b7d326114811b63f9bd84635d94, type: 3}
   m_Material: {fileID: 2100000, guid: 84dc9b7d326114811b63f9bd84635d94, type: 3}
-  m_FontSize: 40
+  m_FontSize: 50
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
