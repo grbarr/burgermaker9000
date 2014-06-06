@@ -4,12 +4,7 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 	public List<string> burger = new List<string>();
-
-	// Use this for initialization
-//	void Start () {
-//		GenerateBurger();
-//	}
-
+	
 	public void GenerateBurger() {
 		string[] ingredients = new string[9] {"lettuce", "tomato", "patty", "pickles", "cheese", "patty", "patty", "patty", "patty",};
 		int num_ingredients = Random.Range(1, 5);
