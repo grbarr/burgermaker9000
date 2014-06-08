@@ -7,12 +7,14 @@ public class ClockCount : MonoBehaviour {
 	public float counterTime;
 	public float alarmTime;	// a ratio of the time to set off the alarm
 	private float currentTime;
+	private Animator animator;
 	GameObject clockHand;
 
 	// Use this for initialization
 	void Start () {
 		currentTime = counterTime;
 		clockHand = GameObject.Find ("ClockHand");
+		animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -24,7 +26,7 @@ public class ClockCount : MonoBehaviour {
 
 		//Alarm goes
 		if (currentTime / counterTime < alarmTime) {
-			GetComponent<Animator>().SetBool("setAlarm",true);
+			animator.SetBool("setAlarm",true);
 		}
 
 		//Update the timer
@@ -33,8 +35,8 @@ public class ClockCount : MonoBehaviour {
 		}
 		else {
 			currentTime = counterTime;
-			GetComponent<Animator>().Play("ClockRest");
-			GetComponent<Animator>().SetBool("setAlarm",false);
+			animator.Play("ClockRest");
+			animator.SetBool("setAlarm",false);
 		}
 
 		//rotate the hand of the clock correctly
