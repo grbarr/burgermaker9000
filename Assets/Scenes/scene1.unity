@@ -217,8 +217,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 401387668}
   - 212: {fileID: 401387667}
+  - 61: {fileID: 401387669}
+  - 114: {fileID: 401387670}
   m_Layer: 0
-  m_Name: Pickles
+  m_Name: pickles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,6 +260,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!61 &401387669
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401387666}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1, y: .579999983}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &401387670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 401387666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1eb0f0c402473ea2fa59f8d1dfe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &524018521
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,8 +341,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 542253908}
   - 212: {fileID: 542253907}
+  - 61: {fileID: 542253909}
+  - 114: {fileID: 542253910}
   m_Layer: 0
-  m_Name: Lettuce
+  m_Name: lettuce
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,6 +384,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!61 &542253909
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 542253906}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.19000006, y: .779999971}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &542253910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 542253906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1eb0f0c402473ea2fa59f8d1dfe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &857321218
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,8 +415,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 857321220}
   - 212: {fileID: 857321219}
+  - 61: {fileID: 857321221}
+  - 114: {fileID: 857321222}
   m_Layer: 0
-  m_Name: Patty
+  m_Name: patty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,6 +458,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!61 &857321221
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857321218}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.29999995, y: .639999986}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &857321222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857321218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1eb0f0c402473ea2fa59f8d1dfe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &861941229
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,8 +539,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 885386885}
   - 212: {fileID: 885386884}
+  - 61: {fileID: 885386886}
+  - 114: {fileID: 885386887}
   m_Layer: 0
-  m_Name: Cheese
+  m_Name: cheese
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,6 +582,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!61 &885386886
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885386883}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .959999979, y: .949999988}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &885386887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885386883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1eb0f0c402473ea2fa59f8d1dfe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1197247195
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,8 +613,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1197247197}
   - 212: {fileID: 1197247196}
+  - 61: {fileID: 1197247198}
+  - 114: {fileID: 1197247199}
   m_Layer: 0
-  m_Name: Top Bun
+  m_Name: bun_top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,6 +656,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!61 &1197247198
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197247195}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.14999998, y: .829999983}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &1197247199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1197247195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1eb0f0c402473ea2fa59f8d1dfe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1247422837
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,8 +687,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1247422839}
   - 212: {fileID: 1247422838}
+  - 61: {fileID: 1247422840}
+  - 114: {fileID: 1247422841}
   m_Layer: 0
-  m_Name: Tomato
+  m_Name: tomato
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -608,6 +730,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!61 &1247422840
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247422837}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: .980000019, y: .75}
+  m_Center: {x: 0, y: 0}
+--- !u!114 &1247422841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1247422837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1eb0f0c402473ea2fa59f8d1dfe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1280199160
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burger: []
+  playerburger: []
 --- !u!4 &1280199162
 Transform:
   m_ObjectHideFlags: 0
@@ -758,8 +903,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1676969954}
   - 212: {fileID: 1676969953}
+  - 114: {fileID: 1676969955}
+  - 61: {fileID: 1676969956}
   m_Layer: 0
-  m_Name: Bottom Bun
+  m_Name: bun_bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,3 +946,66 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &1676969955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1676969952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a1eb0f0c402473ea2fa59f8d1dfe15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1676969956
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1676969952}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 1.34000003, y: .829999983}
+  m_Center: {x: 0, y: 0}
+--- !u!1 &1714792892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1714792893}
+  - 114: {fileID: 1714792894}
+  m_Layer: 0
+  m_Name: PlayerBurger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1714792893
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714792892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3, y: -1.74016905, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+--- !u!114 &1714792894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1714792892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26658d1646e0c40a485c2860034b55ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burger: []
+  playerburger: []

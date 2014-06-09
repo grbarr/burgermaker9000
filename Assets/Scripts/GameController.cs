@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 	public List<string> burger = new List<string>();
+	public List<string> playerburger = new List<string>();
 	private int burgerScore = 0;
 
 	// The following functions keep track of the number of burgers
@@ -25,14 +26,33 @@ public class GameController : MonoBehaviour {
 
 	void Start() {
 		ClearBurger();
-		GenerateBurger ();
+		GenerateBurger();
 	}
 
 	void Update() {
-		if (Input.GetMouseButtonDown (0)) {
+		if (CheckBurgersMatch()) {
+			incrementBurgerScore();
+			Debug.Log("Burger Match!");
+			ClearPlayerBurger();
 			ClearBurger();
 			GenerateBurger();
 		}
+
+		if (playerburger.Count > 8) { 
+			ClearPlayerBurger();
+		}
+	}
+
+	public bool CheckBurgersMatch() {
+		if (playerburger.Count != burger.Count) {
+			return false;
+		}
+		for(int i = 0; i < burger.Count; i++) {
+			if(!burger[i].Equals(playerburger[i])) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	public void GenerateBurger() {
@@ -49,9 +69,9 @@ public class GameController : MonoBehaviour {
 		burger.Add ("bun_top");
 
 		// print burger and display on screen
-		for (var i = 0; i < burger.Count; i++) {
-			Debug.Log (burger[i].ToString());
-		}
+//		for (var i = 0; i < burger.Count; i++) {
+//			Debug.Log (burger[i].ToString());
+//		}
 		DisplayGeneratedBurger();
 	}
 
@@ -77,10 +97,16 @@ public class GameController : MonoBehaviour {
 
 	public void ClearBurger() {
 		burger.Clear();
-
 		var burger_object = GameObject.Find ("Burger");
-
 		foreach (Transform child in burger_object.transform) {
+			GameObject.Destroy(child.gameObject);
+		}
+	}
+
+	public void ClearPlayerBurger() {
+		playerburger.Clear();
+		var player_burger_object = GameObject.Find ("PlayerBurger");
+		foreach (Transform child in player_burger_object.transform) {
 			GameObject.Destroy(child.gameObject);
 		}
 	}
