@@ -18,8 +18,30 @@ public class GameController : MonoBehaviour {
 		sound.Play();
 	}
 
+	int successSkip = 0;
+	int nextMember = 0;
+	int successPrime = 0;
+
 	public void playSuccessSound() {
-		var sound = successSounds [Random.Range (0, successSounds.Length)];
+		Debug.Log (successSounds.Length);
+
+		Debug.Log (successPrime);
+
+		while (successSkip % successPrime == 0) {
+			// Generate three random positive, non-zero numbers
+			int ra = Random.Range(1, successPrime);
+			int rb = Random.Range(1, successPrime);
+			int rc = Random.Range(1, successPrime);
+			successSkip = ra * successSounds.Length * successSounds.Length + rb * successSounds.Length + rc;
+		}
+
+		do {
+			nextMember += successSkip;
+			nextMember %= successPrime;
+		} while (nextMember <= 0 || nextMember > successSounds.Length);
+
+		Debug.Log (nextMember);
+		var sound = successSounds [nextMember - 1];
 		sound.Play();
 	}
 
@@ -51,6 +73,7 @@ public class GameController : MonoBehaviour {
 		Debug.Log (this.clock);
 		this.clock.isCounting = true;
 
+		successPrime = 11;
 		playStartSound();
 	}
 
@@ -146,8 +169,10 @@ public class GameController : MonoBehaviour {
 	public void ClearPlayerBurger() {
 		playerburger.Clear();
 		var player_burger_object = GameObject.Find ("PlayerBurger");
-		foreach (Transform child in player_burger_object.transform) {
-			GameObject.Destroy(child.gameObject);
+		if (player_burger_object != null) {
+			foreach (Transform child in player_burger_object.transform) {
+				GameObject.Destroy (child.gameObject);
+			}
 		}
 	}
 
