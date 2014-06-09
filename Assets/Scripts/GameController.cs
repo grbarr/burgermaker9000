@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour {
 	public List<string> playerburger = new List<string>();
 	private int burgerScore = 0;
 
+	public AudioSource addToppingSound2;
+
 	public ClockCount clock;
 
 	// The following functions keep track of the number of burgers

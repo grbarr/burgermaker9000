@@ -3,16 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class AddBurgerPart : MonoBehaviour {
-	
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
+	public AudioSource clickSound; 
 
 	void OnMouseDown() {
 		var burg_ing = this.gameObject.name;
@@ -26,6 +17,8 @@ public class AddBurgerPart : MonoBehaviour {
 		GameObject go = new GameObject(burg_ing);
 		SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
 		sr.sprite = sprite;
+
+		this.clickSound.Play();
 		
 		go.transform.parent = player_burger.transform;
 		go.transform.localPosition = new Vector3(0f, player_len * 0.6f, 0f);
