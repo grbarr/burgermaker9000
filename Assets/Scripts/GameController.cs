@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start() {
+		GameObject.DontDestroyOnLoad (this.gameObject);
+
 		ClearBurger();
 		GenerateBurger();
 
@@ -118,11 +120,21 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	public void showResults() {
+		Application.LoadLevel("results_scene");
+	}
+
 	private static GameController instance;
 	public static GameController Instance {
 		get {
 			if (GameController.instance == null){
-				GameController.instance = GameObject.Find("GameController").GetComponent<GameController>();
+				var go = GameObject.Find("GameController");
+				if (go == null) {
+					go = new GameObject("GameController");
+					GameController.instance = go.AddComponent<GameController>();
+				} else {
+					GameController.instance = go.GetComponent<GameController>();
+				}
 			}
 			return GameController.instance;
 		}

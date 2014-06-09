@@ -23,7 +23,8 @@ public class HighscoreController : MonoBehaviour {
 
 	private List<Highscore> scores = new List<Highscore>();
 
-	//functions to add, clear, and explore the highscore table
+	//functions to add, clear, save, load, and explore the highscore table
+	//make sure player names in the highscore table to not contain the characters '#' or '*'
 
 	public void addScore(string name, int score) {
 		Highscore curScore = new Highscore (name, score);
@@ -37,6 +38,31 @@ public class HighscoreController : MonoBehaviour {
 
 	public Highscore playerAt(int index) {
 		return scores[index];
+	}
+
+	public void saveScores () {
+		int i = 0;
+		string toSave = "";
+		foreach(Highscore player in scores) {
+			toSave += player.name + "#" + player.score.ToString();
+			if (i != scores.Count - 1)
+				toSave += "*";
+			i++;
+		}
+		PlayerPrefs.SetString ("Highscores", toSave);
+	}
+
+	public void loadScores () {
+		string toLoad = PlayerPrefs.GetString ("Highscores");
+		string [] loadedArray = toLoad.Split ("*".ToCharArray());
+		string[] curUser;
+		clearScores ();
+		for (int i = 0; i < loadedArray.Length; i++) {
+			if (loadedArray[i] != "") {
+				curUser = loadedArray[i].Split("#".ToCharArray());
+				addScore(curUser[0],System.Int32.Parse(curUser[1]));
+			}
+		}
 	}
 
 	// Use this for initialization
