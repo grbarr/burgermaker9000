@@ -3,6 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+//structure to hold each player's score information
+
 public class Highscore : IComparable<Highscore> {
 	public string name;
 	public int score;
@@ -20,6 +22,8 @@ public class Highscore : IComparable<Highscore> {
 public class HighscoreController : MonoBehaviour {
 
 	private List<Highscore> scores = new List<Highscore>();
+
+	//functions to add, clear, and explore the highscore table
 
 	public void addScore(string name, int score) {
 		Highscore curScore = new Highscore (name, score);
