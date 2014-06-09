@@ -9,14 +9,17 @@ public class GameController : MonoBehaviour {
 	private bool burgerlock = false;
 
 	public AudioSource[] startSounds;
-
-//	public AudioSource startSound1;
-	public AudioSource successSound1;
+	public AudioSource[] successSounds;
 
 	public ClockCount clock;
 
 	public void playStartSound() {
 		var sound = startSounds[Random.Range(0, startSounds.Length)];
+		sound.Play();
+	}
+
+	public void playSuccessSound() {
+		var sound = successSounds [Random.Range (0, successSounds.Length)];
 		sound.Play();
 	}
 
@@ -57,7 +60,7 @@ public class GameController : MonoBehaviour {
 			incrementBurgerScore();
 			var text = GameObject.Find("paper pad text");
 			text.guiText.text = getBurgerScore().ToString();
-			this.successSound1.Play();
+			playSuccessSound();
 			StartCoroutine (newburger());
 		}
 
