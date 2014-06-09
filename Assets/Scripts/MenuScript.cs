@@ -6,11 +6,9 @@ using System.Collections;
 /// </summary>
 public class MenuScript : MonoBehaviour
 {
-//	GameController gc;
 
 	void Start() {
-//		GameObject gameController = GameObject.Find ("GameController");
-//		gc = gameController.GetComponent<GameController>();
+
 	}
 
 	void OnGUI() {

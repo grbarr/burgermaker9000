@@ -117,6 +117,10 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
+	public void showResults() {
+		Application.LoadLevel("results_scene");
+	}
+
 	private static GameController instance;
 	public static GameController Instance {
 		get {

@@ -16,14 +16,12 @@ public class AddBurgerPart : MonoBehaviour {
 
 	void OnMouseDown() {
 		var burg_ing = this.gameObject.name;
-		GameObject playerBurger = GameObject.Find("PlayerBurger");
 		GameController gameControl = GameController.Instance;
 		gameControl.playerburger.Add (burg_ing);
 		var player_len = gameControl.playerburger.Count;
 
 		var player_burger = GameObject.Find ("PlayerBurger");
 		var texture = Resources.Load<Texture2D>("burger_parts/" + burg_ing);
-		Debug.Log (this.gameObject.name);
 		Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
 		GameObject go = new GameObject(burg_ing);
 		SpriteRenderer sr = go.AddComponent<SpriteRenderer>();

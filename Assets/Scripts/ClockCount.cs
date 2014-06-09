@@ -22,6 +22,9 @@ public class ClockCount : MonoBehaviour {
 		//when the timer ends
 		if (currentTime < 0) {
 			isCounting = false;
+
+			GameController gameControl = GameController.Instance;
+			gameControl.showResults();
 		}
 
 		//Alarm goes
@@ -48,4 +51,5 @@ public class ClockCount : MonoBehaviour {
 		clockHand.transform.localRotation = Quaternion.Euler (0, 0, angle);
 
 	}
+
 }
