@@ -28,7 +28,7 @@ public class AddBurgerPart : MonoBehaviour {
 		sr.sprite = sprite;
 		
 		go.transform.parent = player_burger.transform;
-		go.transform.localPosition = new Vector3(0f, player_len * 0.1f, 0f);
+		go.transform.localPosition = new Vector3(0f, player_len * 0.6f, 0f);
 		sr.sortingOrder = 0;
 	}
 }
