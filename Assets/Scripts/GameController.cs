@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
 	public List<string> burger = new List<string>();
 	public List<string> playerburger = new List<string>();
 	private int burgerScore = 0;
+	private bool burgerlock = false;
 
 	public AudioSource addToppingSound2;
 
@@ -30,6 +31,7 @@ public class GameController : MonoBehaviour {
 
 	void Start() {
 		GameObject.DontDestroyOnLoad (this.gameObject);
+		GameObject.Find ("checkmark").renderer.enabled = false;
 
 		ClearBurger();
 		GenerateBurger();
@@ -41,20 +43,32 @@ public class GameController : MonoBehaviour {
 
 	void Update() {
 		if (CheckBurgersMatch()) {
+			burgerlock = true;
 			incrementBurgerScore();
 			var text = GameObject.Find("paper pad text");
 			text.guiText.text = getBurgerScore().ToString();
-			ClearPlayerBurger();
-			ClearBurger();
-			GenerateBurger();
+			StartCoroutine (newburger());
 		}
 
 		if (playerburger.Count > 8) { 
 			ClearPlayerBurger();
 		}
 	}
+	IEnumerator newburger() {
+		yield return new WaitForSeconds (0.2f);
+		GameObject.Find ("checkmark").renderer.enabled = true;
+		yield return new WaitForSeconds (0.5f);
+		ClearPlayerBurger();
+		ClearBurger();
+		GenerateBurger();
+		burgerlock = false;
+		GameObject.Find ("checkmark").renderer.enabled = false;
+	}
 
 	public bool CheckBurgersMatch() {
+		if (burgerlock == true) {
+			return false;
+		}
 		if (playerburger.Count != burger.Count) {
 			return false;
 		}
