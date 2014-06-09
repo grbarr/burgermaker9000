@@ -42,7 +42,8 @@ public class GameController : MonoBehaviour {
 	void Update() {
 		if (CheckBurgersMatch()) {
 			incrementBurgerScore();
-			Debug.Log("Burger Match!");
+			var text = GameObject.Find("paper pad text");
+			text.guiText.text = getBurgerScore().ToString();
 			ClearPlayerBurger();
 			ClearBurger();
 			GenerateBurger();
