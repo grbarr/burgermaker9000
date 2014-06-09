@@ -32,7 +32,7 @@ public class ClockCount : MonoBehaviour {
 		//Alarm goes
 		if (currentTime / counterTime < alarmTime) {
 			animator.SetBool("setAlarm",true);
-			this.alarmSound.Play(); // This doesn't work :(
+			//this.alarmSound.Play(); // This doesn't work :(
 		}
 
 		//Update the timer
