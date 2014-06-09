@@ -4,12 +4,8 @@ using System.Collections;
 /// <summary>
 /// Title screen script
 /// </summary>
-public class MenuScript : MonoBehaviour
-{
-
-	void Start() {
-
-	}
+public class MenuScript : MonoBehaviour {
+	public AudioSource clickSound; 
 
 	void OnGUI() {
 		const int buttonWidth = 120;
@@ -29,8 +25,8 @@ public class MenuScript : MonoBehaviour
 			)
 		) {
 			// On Click, load the first level.
+			this.clickSound.Play();
 			Application.LoadLevel("scene1");
-//			gc.GenerateBurger();
 		}
 	}
 }
