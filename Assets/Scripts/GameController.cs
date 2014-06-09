@@ -8,10 +8,17 @@ public class GameController : MonoBehaviour {
 	private int burgerScore = 0;
 	private bool burgerlock = false;
 
-	public AudioSource startSound1;
+	public AudioSource[] startSounds;
+
+//	public AudioSource startSound1;
 	public AudioSource successSound1;
 
 	public ClockCount clock;
+
+	public void playStartSound() {
+		var sound = startSounds[Random.Range(0, startSounds.Length)];
+		sound.Play();
+	}
 
 	// The following functions keep track of the number of burgers
 	public void incrementBurgerScore () {
@@ -41,7 +48,7 @@ public class GameController : MonoBehaviour {
 		Debug.Log (this.clock);
 		this.clock.isCounting = true;
 
-		this.startSound1.Play();
+		playStartSound();
 	}
 
 	void Update() {
