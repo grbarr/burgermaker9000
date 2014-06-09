@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/results_scene.unity
   - enabled: 1
     path: Assets/Scenes/credits_scene.unity
+  - enabled: 1
+    path: Assets/Scenes/highscore_scene.unity

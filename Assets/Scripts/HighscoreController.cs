@@ -37,7 +37,8 @@ public class HighscoreController : MonoBehaviour {
 	}
 
 	public Highscore playerAt(int index) {
-		return scores[index];
+		int size = scores.Count;
+		return scores[size - index - 1];
 	}
 
 	public void saveScores () {

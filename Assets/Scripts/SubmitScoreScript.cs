@@ -19,6 +19,10 @@ public class SubmitScoreScript : MonoBehaviour {
 		highscore.addScore (userName, userScore);
 		highscore.saveScores ();
 		Debug.Log ("added " + userName + "'s score of " + userScore.ToString ());
+		// On Click, load the highscore page.
+		DontDestroyOnLoad (GameObject.Find ("highscoreController"));
+		Application.LoadLevel("highscore_scene");
+
 	}
 	// Use this for initialization
 	void Start () {
