@@ -154,10 +154,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enterNamePosition:
     serializedVersion: 2
+<<<<<<< Updated upstream
+    x: 206.300003
+    y: 296.799988
+    width: 132.100006
+    height: 34.7999992
+=======
     x: 205
     y: 297
     width: 133
     height: 34
+>>>>>>> Stashed changes
   playerName: Enter Name
   customStyle:
     m_Name: 
