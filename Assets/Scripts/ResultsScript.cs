@@ -8,6 +8,7 @@ public class ResultsScript : MonoBehaviour {
 	public string playerName = "Enter Name";
 	const int maxNameLength = 9;
 	public GUIStyle customStyle;
+	public AudioSource[] finishSounds;
 
 	// Use this for initialization
 	void Start () {
@@ -17,12 +18,14 @@ public class ResultsScript : MonoBehaviour {
 			// display score
 			var scoreText = GameObject.Find ("ScoreText");
 			scoreText.guiText.text = score.ToString();
+
+			playFinishSound();
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public void playFinishSound() {
+		var sound = finishSounds [Random.Range (0, finishSounds.Length)];
+		sound.Play();
 	}
 
 	void OnGUI () {

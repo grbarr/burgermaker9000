@@ -100,7 +100,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1969469654}
-  - {fileID: 852737523}
   - {fileID: 1529600190}
   - {fileID: 24248255}
   - {fileID: 2033942018}
@@ -145,6 +144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 2
 --- !u!82 &24248256
 AudioSource:
   m_ObjectHideFlags: 0
@@ -360,6 +360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 14
 --- !u!82 &222298709
 AudioSource:
   m_ObjectHideFlags: 0
@@ -445,6 +446,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 15
 --- !u!82 &231340753
 AudioSource:
   m_ObjectHideFlags: 0
@@ -655,6 +657,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 5
 --- !u!82 &529688147
 AudioSource:
   m_ObjectHideFlags: 0
@@ -815,6 +818,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 6
 --- !u!82 &800250530
 AudioSource:
   m_ObjectHideFlags: 0
@@ -900,6 +904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 12
 --- !u!82 &808614662
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1681,6 +1686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 4
 --- !u!82 &1487661287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1766,6 +1772,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 1
 --- !u!82 &1529600191
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2000,6 +2007,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 16
 --- !u!82 &1693934013
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2111,6 +2119,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 13
 --- !u!82 &1880740115
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2245,6 +2254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 8
 --- !u!82 &1961479529
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2415,6 +2425,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 10
 --- !u!82 &1983944860
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2500,6 +2511,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 7
 --- !u!82 &2013728116
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2585,6 +2597,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 3
 --- !u!82 &2033942019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2670,6 +2683,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 11
 --- !u!82 &2095810287
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2755,6 +2769,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1679142}
+  m_RootOrder: 9
 --- !u!82 &2142833841
 AudioSource:
   m_ObjectHideFlags: 0
