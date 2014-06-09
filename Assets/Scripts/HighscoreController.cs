@@ -38,6 +38,8 @@ public class HighscoreController : MonoBehaviour {
 
 	public Highscore playerAt(int index) {
 		int size = scores.Count;
+		if (index > size - 1)
+			return null;
 		return scores[size - index - 1];
 	}
 

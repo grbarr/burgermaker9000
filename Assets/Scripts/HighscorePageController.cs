@@ -19,7 +19,9 @@ public class HighscorePageController : MonoBehaviour {
 		foreach(Transform child in transform) {
 			curPlayer = highscore.playerAt(i);
 			if (curPlayer != null)
-				child.GetComponent<GUIText>().text = (i+1).ToString() + ". " + curPlayer.name + " " + curPlayer.score;
+				child.GetComponent<GUIText>().text = (i+1).ToString() + ". " + curPlayer.name + " - " + curPlayer.score;
+			else
+				child.GetComponent<GUIText>().text = "";
 			i++;
 		}
 	}
