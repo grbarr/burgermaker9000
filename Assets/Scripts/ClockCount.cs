@@ -16,7 +16,7 @@ public class ClockCount : MonoBehaviour {
 		clockHand = GameObject.Find ("ClockHand");
 		animator = GetComponent<Animator> ();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		//when the timer ends

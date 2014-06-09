@@ -24,6 +24,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start() {
+		ClearBurger();
 		GenerateBurger ();
 	}
 
@@ -47,6 +48,10 @@ public class GameController : MonoBehaviour {
 
 		burger.Add ("bun_top");
 
+		// print burger and display on screen
+		for (var i = 0; i < burger.Count; i++) {
+			Debug.Log (burger[i].ToString());
+		}
 		DisplayGeneratedBurger();
 	}
 
@@ -57,13 +62,13 @@ public class GameController : MonoBehaviour {
 		foreach (string burg_ing in burger) {
 			var texture = Resources.Load<Texture2D>("burger_parts/" + burg_ing);
 			Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-			Debug.Log(sprite);
 			GameObject go = new GameObject(burg_ing);
 			SpriteRenderer sr = go.AddComponent<SpriteRenderer>();
 			sr.sprite = sprite;
 
+			// TODO: make sure layering of toppings looks correct
 			go.transform.parent = burger_object.transform;
-			go.transform.localPosition = new Vector3(0f, index * 1.15f, 0f);
+			go.transform.localPosition = new Vector3(0f, index * 0.9f, 0f);
 			sr.sortingOrder = index;
 
 			index++;
