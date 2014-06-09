@@ -94,8 +94,9 @@ public class GameController : MonoBehaviour {
 
 			// TODO: make sure layering of toppings looks correct
 			go.transform.parent = burger_object.transform;
-			go.transform.localPosition = new Vector3(0f, index * 0.9f, 0f);
+			go.transform.localPosition = new Vector3(0f, index * 0.7f, 0f);
 			sr.sortingOrder = index;
+			go.transform.localScale = new Vector3(0.6f,0.6f,1f);
 
 			index++;
 		}
