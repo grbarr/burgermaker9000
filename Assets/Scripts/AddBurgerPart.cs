@@ -17,7 +17,7 @@ public class AddBurgerPart : MonoBehaviour {
 	void OnMouseDown() {
 		var burg_ing = this.gameObject.name;
 		GameObject playerBurger = GameObject.Find("PlayerBurger");
-		GameController gameControl = playerBurger.GetComponent<GameController>();
+		GameController gameControl = GameController.Instance;
 		gameControl.playerburger.Add (burg_ing);
 		var player_len = gameControl.playerburger.Count;
 

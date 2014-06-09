@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour {
 	public List<string> playerburger = new List<string>();
 	private int burgerScore = 0;
 
+	public ClockCount clock;
+
 	// The following functions keep track of the number of burgers
 	public void incrementBurgerScore () {
 		burgerScore++;
@@ -27,6 +29,10 @@ public class GameController : MonoBehaviour {
 	void Start() {
 		ClearBurger();
 		GenerateBurger();
+
+		// start the timer
+		Debug.Log (this.clock);
+		this.clock.isCounting = true;
 	}
 
 	void Update() {
@@ -108,6 +114,16 @@ public class GameController : MonoBehaviour {
 		var player_burger_object = GameObject.Find ("PlayerBurger");
 		foreach (Transform child in player_burger_object.transform) {
 			GameObject.Destroy(child.gameObject);
+		}
+	}
+
+	private static GameController instance;
+	public static GameController Instance {
+		get {
+			if (GameController.instance == null){
+				GameController.instance = GameObject.Find("GameController").GetComponent<GameController>();
+			}
+			return GameController.instance;
 		}
 	}
 }
