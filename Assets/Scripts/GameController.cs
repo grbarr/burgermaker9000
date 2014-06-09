@@ -8,7 +8,8 @@ public class GameController : MonoBehaviour {
 	private int burgerScore = 0;
 	private bool burgerlock = false;
 
-	public AudioSource addToppingSound2;
+	public AudioSource startSound1;
+	public AudioSource successSound1;
 
 	public ClockCount clock;
 
@@ -39,6 +40,8 @@ public class GameController : MonoBehaviour {
 		// start the timer
 		Debug.Log (this.clock);
 		this.clock.isCounting = true;
+
+		this.startSound1.Play();
 	}
 
 	void Update() {
@@ -47,6 +50,7 @@ public class GameController : MonoBehaviour {
 			incrementBurgerScore();
 			var text = GameObject.Find("paper pad text");
 			text.guiText.text = getBurgerScore().ToString();
+			this.successSound1.Play();
 			StartCoroutine (newburger());
 		}
 

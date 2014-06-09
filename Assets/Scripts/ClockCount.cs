@@ -10,6 +10,8 @@ public class ClockCount : MonoBehaviour {
 	private Animator animator;
 	GameObject clockHand;
 
+	public AudioSource alarmSound;
+
 	// Use this for initialization
 	void Start () {
 		currentTime = counterTime;
@@ -30,6 +32,7 @@ public class ClockCount : MonoBehaviour {
 		//Alarm goes
 		if (currentTime / counterTime < alarmTime) {
 			animator.SetBool("setAlarm",true);
+			this.alarmSound.Play(); // This doesn't work :(
 		}
 
 		//Update the timer
