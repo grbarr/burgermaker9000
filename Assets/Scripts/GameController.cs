@@ -161,6 +161,8 @@ public class GameController : MonoBehaviour {
 	public void ClearBurger() {
 		burger.Clear();
 		var burger_object = GameObject.Find ("Burger");
+		if (!burger_object)
+			return;
 		foreach (Transform child in burger_object.transform) {
 			GameObject.Destroy(child.gameObject);
 		}
