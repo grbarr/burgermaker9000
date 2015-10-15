@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GameController : MonoBehaviour {
 	public List<string> burger = new List<string>();
@@ -11,7 +13,15 @@ public class GameController : MonoBehaviour {
 	public AudioSource[] startSounds;
 	public AudioSource[] successSounds;
 
+    public List<AddBurgerPart> Toppings;
+
 	public ClockCount clock;
+    public float timeBonus;
+
+    public int streak = 0;
+    public Text streakText;
+
+    public float lastCheck = 0;
 
 	public void playStartSound() {
 		var sound = startSounds[Random.Range(0, startSounds.Length)];
@@ -48,6 +58,7 @@ public class GameController : MonoBehaviour {
 	// The following functions keep track of the number of burgers
 	public void incrementBurgerScore () {
 		burgerScore++;
+        this.clock.AddTime(this.timeBonus);
 	}
 
 	public void incrementBurgerScore(int n) {
@@ -85,13 +96,22 @@ public class GameController : MonoBehaviour {
 			text.guiText.text = getBurgerScore().ToString();
 			playSuccessSound();
 			StartCoroutine (newburger());
+		    this.streak++;
 		}
+
+		streakText.text = this.streak.ToString();
+		
 
 		if (playerburger.Count > 8) { 
 			ClearPlayerBurger();
 		}
+
+	    if ((clock.totalTime - lastCheck) >= 60f) {
+	        this.RandomizeToppings();
+	        lastCheck = Time.time;
+	    }
 	}
-	IEnumerator newburger() {
+	public IEnumerator newburger() {
 		yield return new WaitForSeconds (0.2f);
 		GameObject.Find ("checkmark").renderer.enabled = true;
 		yield return new WaitForSeconds (0.5f);
@@ -197,4 +217,18 @@ public class GameController : MonoBehaviour {
 			return GameController.instance;
 		}
 	}
+
+    [ContextMenu("Randomize Toppings")]
+    public void RandomizeToppings() {
+        
+        for (int i = (this.Toppings.Count - 1); i >= 0; i--) {
+            int randomIndex = Random.Range(0, i);
+
+            string tempName = this.Toppings[i].gameObject.name;
+            Sprite tempSprite = this.Toppings[i].gameObject.GetComponent<SpriteRenderer>().sprite;
+
+            this.Toppings[i].ChangeTopping(this.Toppings[randomIndex].gameObject.name, this.Toppings[randomIndex].GetComponent<SpriteRenderer>().sprite);
+            this.Toppings[randomIndex].ChangeTopping(tempName, tempSprite);
+        }
+    }
 }
