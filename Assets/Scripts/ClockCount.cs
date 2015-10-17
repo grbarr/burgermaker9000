@@ -9,9 +9,10 @@ public class ClockCount : MonoBehaviour {
 	public float counterTime;
     public float totalTime = 0;
 	public float alarmTime;	// a ratio of the time to set off the alarm
+    public bool paused;
     public Text counter;
-    public Animator timeBonusAnimator;
-    public Text timeBonusText;
+    public GameObject rewardObject;
+    public GameObject Canvas;
 
 	private float currentTime;
 	private Animator animator;
@@ -38,41 +39,80 @@ public class ClockCount : MonoBehaviour {
 
 		//Alarm goes
 		if (currentTime / counterTime < alarmTime) {
+            this.counter.color = Color.red;
 			animator.SetBool("setAlarm",true);
-			//this.alarmSound.Play(); // This doesn't work :(
-		}
 
-		//Update the timer
-		if (isCounting) {
-			currentTime -= Time.deltaTime;
-            this.counter.text = (Mathf.Round(this.currentTime * 10) / 10).ToString();
-		    if (this.currentTime <= 10) {
-		        this.counter.color = Color.red;
-            } else {
-                this.counter.color = Color.black;
-            }
-		    totalTime += Time.deltaTime;
-		}
-		else {
-			currentTime = counterTime;
-			animator.Play("ClockRest");
-			animator.SetBool("setAlarm",false);
-		}
-
-	}
-
-    public void AddTime(float additionalTime) {
-
-
-        if (additionalTime < 0) {
-            this.timeBonusText.text = additionalTime.ToString();
-            this.timeBonusAnimator.Play("Time_Penalty");
-        } else if (additionalTime > 0) {
-            this.timeBonusText.text = "+" + additionalTime.ToString();
-            this.timeBonusAnimator.Play("Time_Bonus");
+            if(!alarmSound.isPlaying)
+			    this.alarmSound.Play();
+        } else {
+            this.alarmSound.Stop();
         }
 
+		//Update the timer
+        if (!this.paused) {
+		    if (isCounting) {
+			    currentTime -= Time.deltaTime;
+                this.counter.text = (Mathf.Round(this.currentTime * 10) / 10).ToString();
+		        totalTime += Time.deltaTime;
+		    }
+		    else {
+			    currentTime = counterTime;
+			    animator.Play("ClockRest");
+			    animator.SetBool("setAlarm",false);
+		    }
+        } else {
+            animator.Play("ClockRest");
+            animator.SetBool("setAlarm", false);
+            this.alarmSound.Stop();
+        }
+	}
+
+    public IEnumerator AddTime(float additionalTime) {
+
+        if(this.Canvas.transform.childCount > 0)
+            yield return new WaitForSeconds(.5f);
+
         this.currentTime += additionalTime;
+
+        Color temp = this.counter.color;
+
+        GameObject bonusTextGO = (GameObject)Instantiate(rewardObject);
+        bonusTextGO.transform.parent = this.Canvas.transform;
+
+        Animator timeBonusAnimator = bonusTextGO.gameObject.GetComponent<Animator>();
+        Text timeBonusText = bonusTextGO.GetComponentInChildren<Text>();
+
+        if (additionalTime < 0) {
+            timeBonusText.text = additionalTime.ToString();
+            timeBonusAnimator.Play("Time_Penalty");
+            this.counter.color = Color.red;
+        } else if (additionalTime > 0) {
+            timeBonusText.text = "+" + additionalTime.ToString();
+            timeBonusAnimator.Play("Time_Bonus");
+            this.counter.color = Color.green;
+        }
+
+        Destroy(bonusTextGO, 1.15f);
+
+        animator.SetBool("setAlarm", true);
+        yield return new WaitForSeconds(1f);
+        animator.Play("ClockRest");
+        animator.SetBool("setAlarm", false);
+
+        if (this.currentTime < 10) {
+            this.counter.color = Color.red;
+        } else {
+            this.counter.color = Color.black;
+        }
+
+    }
+
+    public void pause() {
+        this.paused = true;
+    }
+
+    public void start() {
+        this.paused = false;
     }
 
 }

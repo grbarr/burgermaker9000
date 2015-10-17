@@ -15,15 +15,12 @@ public class ResultsScript : MonoBehaviour {
 	void Start () {
 		width *= Screen.width / Camera.main.orthographicSize * Camera.main.aspect;
 		height *= Screen.height / Camera.main.orthographicSize;
-		GameController gameControl = GameController.Instance;
-		if (gameControl != null) {
-			var score = gameControl.getBurgerScore ();
-			// display score
-			var scoreText = GameObject.Find ("ScoreText");
-			scoreText.guiText.text = score.ToString();
+		var score = ScoreSave.Instance.score;
+		// display score
+		var scoreText = GameObject.Find ("ScoreText");
+		scoreText.guiText.text = score.ToString();
 
-			playFinishSound();
-		}
+		playFinishSound();
 	}
 
 	public void playFinishSound() {

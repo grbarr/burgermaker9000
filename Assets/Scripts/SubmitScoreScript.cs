@@ -5,15 +5,11 @@ public class SubmitScoreScript : MonoBehaviour {
 
 	string userName;
 	int userScore;
-	GameController gameControl;
 
 	void OnMouseDown() {
 		userName = GameObject.Find ("GUI Script").GetComponent<ResultsScript> ().playerName;
-		if (gameControl == null) {
-			Debug.Log("No game object in scene!");
-			return;
-		}
-		userScore = gameControl.getBurgerScore ();
+
+        userScore = ScoreSave.Instance.score;
 		HighscoreController highscore = GameObject.Find ("highscoreController").GetComponent<HighscoreController> ();
 		highscore.loadScores ();
 		highscore.addScore (userName, userScore);
@@ -23,14 +19,5 @@ public class SubmitScoreScript : MonoBehaviour {
 		DontDestroyOnLoad (GameObject.Find ("highscoreController"));
 		Application.LoadLevel("highscore_scene");
 
-	}
-	// Use this for initialization
-	void Start () {
-		gameControl = GameController.Instance;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour {
     public float randomizeInterval;
     public float failureTimePenalty;
     public float successTimeReward;
+    public Animator randomizeAnimator;
+    public bool randomizing = false;
 
 	private int burgerScore = 0;
 	private bool burgerlock = false;
@@ -23,6 +25,9 @@ public class GameController : MonoBehaviour {
 
     public int streak = 0;
     public Text streakText;
+    public Animator streakAnimator;
+    public int streakBonus;
+    public int streakInterval;
 
     public float lastCheck = 0;
 
@@ -59,9 +64,17 @@ public class GameController : MonoBehaviour {
 	}
 
 	// The following functions keep track of the number of burgers
-	public void incrementBurgerScore () {
+	public IEnumerator incrementBurgerScore () {
 		burgerScore++;
-        this.clock.AddTime(this.successTimeReward);
+        StartCoroutine(this.clock.AddTime(this.successTimeReward));
+
+        this.streak++;
+        if ((this.streak != 0) && ((this.streak % this.streakInterval) == 0)) {
+            yield return new WaitForSeconds(0.5f);
+            this.streakAnimator.Play("Streak");
+            StartCoroutine(this.clock.AddTime((this.streak / this.streakInterval) * this.streakBonus));
+        }
+        yield return null;
 	}
 
 	public void incrementBurgerScore(int n) {
@@ -77,7 +90,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Start() {
-		GameObject.DontDestroyOnLoad (this.gameObject);
 		GameObject.Find ("checkmark").renderer.enabled = false;
 
 		ClearBurger();
@@ -94,24 +106,27 @@ public class GameController : MonoBehaviour {
 	void Update() {
 		if (CheckBurgersMatch()) {
 			burgerlock = true;
-			incrementBurgerScore();
-			var text = GameObject.Find("paper pad text");
-			text.guiText.text = getBurgerScore().ToString();
+            StartCoroutine(incrementBurgerScore());
+
+			var text = (GameObject.Find("paper pad text")).GetComponent<Text>();
+			text.text = getBurgerScore().ToString();
+
 			playSuccessSound();
+
 			StartCoroutine (newburger(true));
-		    this.streak++;
 		}
 
-		streakText.text = this.streak.ToString();
+        if(streakText)
+		    streakText.text = this.streak.ToString();
 		
 
 		if (playerburger.Count > 8) { 
 			ClearPlayerBurger();
 		}
 
-	    if ((clock.totalTime - lastCheck) >= randomizeInterval) {
-	        this.RandomizeToppings();
-	        lastCheck = Time.time;
+	    if ( this.clock && ((this.clock.totalTime - this.lastCheck) >= this.randomizeInterval) ) {
+            if(!this.randomizing)
+                StartCoroutine(this.RandomizeToppings());
 	    }
 	}
 	public IEnumerator newburger(bool correct) {
@@ -208,6 +223,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void showResults() {
+        ScoreSave.Instance.score = this.getBurgerScore();
 		Application.LoadLevel("results_scene");
 	}
 
@@ -228,8 +244,14 @@ public class GameController : MonoBehaviour {
 	}
 
     [ContextMenu("Randomize Toppings")]
-    public void RandomizeToppings() {
-        
+    public IEnumerator RandomizeToppings() {
+
+        this.clock.pause();
+        this.randomizing = true;
+        this.randomizeAnimator.Play("Randomize");
+
+        yield return new WaitForSeconds(3f);
+
         for (int i = (this.Toppings.Count - 1); i >= 0; i--) {
             int randomIndex = Random.Range(0, i);
 
@@ -239,5 +261,9 @@ public class GameController : MonoBehaviour {
             this.Toppings[i].ChangeTopping(this.Toppings[randomIndex].gameObject.name, this.Toppings[randomIndex].GetComponent<SpriteRenderer>().sprite);
             this.Toppings[randomIndex].ChangeTopping(tempName, tempSprite);
         }
+
+        lastCheck = clock.totalTime;
+        this.clock.start();
+        this.randomizing = false;
     }
 }
