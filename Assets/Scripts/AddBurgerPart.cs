@@ -12,14 +12,14 @@ public class AddBurgerPart : MonoBehaviour {
 		gameControl.playerburger.Add (burg_ing);
 
 	    if ((gameControl.playerburger.Count - 1) >= gameControl.burger.Count) {
-            gameControl.clock.AddTime(-10);
+            gameControl.clock.AddTime(gameControl.failureTimePenalty);
 	        gameControl.streak = 0;
-            StartCoroutine(gameControl.newburger());
+            StartCoroutine(gameControl.newburger(false));
 	    }
 	    else if (gameControl.playerburger.Last() != gameControl.burger[gameControl.playerburger.Count - 1]) {
-	        gameControl.clock.AddTime(-10);
+	        gameControl.clock.AddTime(gameControl.failureTimePenalty);
             gameControl.streak = 0;
-            StartCoroutine(gameControl.newburger());
+            StartCoroutine(gameControl.newburger(false));
 	    }
 
 		var player_len = gameControl.playerburger.Count;

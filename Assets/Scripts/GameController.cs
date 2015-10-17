@@ -7,6 +7,10 @@ using System.Linq;
 public class GameController : MonoBehaviour {
 	public List<string> burger = new List<string>();
 	public List<string> playerburger = new List<string>();
+    public float randomizeInterval;
+    public float failureTimePenalty;
+    public float successTimeReward;
+
 	private int burgerScore = 0;
 	private bool burgerlock = false;
 
@@ -16,7 +20,6 @@ public class GameController : MonoBehaviour {
     public List<AddBurgerPart> Toppings;
 
 	public ClockCount clock;
-    public float timeBonus;
 
     public int streak = 0;
     public Text streakText;
@@ -58,7 +61,7 @@ public class GameController : MonoBehaviour {
 	// The following functions keep track of the number of burgers
 	public void incrementBurgerScore () {
 		burgerScore++;
-        this.clock.AddTime(this.timeBonus);
+        this.clock.AddTime(this.successTimeReward);
 	}
 
 	public void incrementBurgerScore(int n) {
@@ -95,7 +98,7 @@ public class GameController : MonoBehaviour {
 			var text = GameObject.Find("paper pad text");
 			text.guiText.text = getBurgerScore().ToString();
 			playSuccessSound();
-			StartCoroutine (newburger());
+			StartCoroutine (newburger(true));
 		    this.streak++;
 		}
 
@@ -106,14 +109,20 @@ public class GameController : MonoBehaviour {
 			ClearPlayerBurger();
 		}
 
-	    if ((clock.totalTime - lastCheck) >= 60f) {
+	    if ((clock.totalTime - lastCheck) >= randomizeInterval) {
 	        this.RandomizeToppings();
 	        lastCheck = Time.time;
 	    }
 	}
-	public IEnumerator newburger() {
-		yield return new WaitForSeconds (0.2f);
-		GameObject.Find ("checkmark").renderer.enabled = true;
+	public IEnumerator newburger(bool correct) {
+
+        if (correct) {
+		    GameObject.Find ("checkmark").renderer.enabled = true;
+        } else {
+            // graham heres where to show the X just set it up 
+            // like the check mark is set up and then insert the same code
+        }
+
 		yield return new WaitForSeconds (0.5f);
 		ClearPlayerBurger();
 		ClearBurger();
