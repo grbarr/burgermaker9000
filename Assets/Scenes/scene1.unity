@@ -2446,7 +2446,7 @@ MonoBehaviour:
   failureTimePenalty: -5
   successTimeReward: 4
   randomizeAnimator: {fileID: 551975635}
-  randomizing: 1
+  randomizing: 0
   startSounds:
   - {fileID: 24248256}
   - {fileID: 800250530}
