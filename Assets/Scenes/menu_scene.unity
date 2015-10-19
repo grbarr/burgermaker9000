@@ -271,7 +271,7 @@ GUIText:
   m_LineSpacing: .800000012
   m_TabSize: 2
   m_Font: {fileID: 12800000, guid: 84dc9b7d326114811b63f9bd84635d94, type: 3}
-  m_Material: {fileID: 2100000, guid: 84dc9b7d326114811b63f9bd84635d94, type: 3}
+  m_Material: {fileID: 0}
   m_FontSize: 70
   m_FontStyle: 0
   m_Color:
