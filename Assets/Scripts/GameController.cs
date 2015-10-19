@@ -91,6 +91,7 @@ public class GameController : MonoBehaviour {
 
 	void Start() {
 		GameObject.Find ("checkmark").renderer.enabled = false;
+		GameObject.Find ("Xfail").renderer.enabled = false;
 
 		ClearBurger();
 		GenerateBurger();
@@ -134,8 +135,7 @@ public class GameController : MonoBehaviour {
         if (correct) {
 		    GameObject.Find ("checkmark").renderer.enabled = true;
         } else {
-            // graham heres where to show the X just set it up 
-            // like the check mark is set up and then insert the same code
+			GameObject.Find ("Xfail").renderer.enabled = true;
         }
 
 		yield return new WaitForSeconds (0.5f);
@@ -144,6 +144,7 @@ public class GameController : MonoBehaviour {
 		GenerateBurger();
 		burgerlock = false;
 		GameObject.Find ("checkmark").renderer.enabled = false;
+		GameObject.Find ("Xfail").renderer.enabled = false;
 	}
 
 	public bool CheckBurgersMatch() {
