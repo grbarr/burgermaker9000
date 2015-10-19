@@ -2494,7 +2494,7 @@ MonoBehaviour:
   burger: []
   playerburger: []
   randomizeInterval: 45
-  failureTimePenalty: -10
+  failureTimePenalty: -15
   successTimeReward: 5
   randomizeAnimator: {fileID: 551975635}
   randomizing: 0
